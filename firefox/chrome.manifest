@@ -1,0 +1,8 @@
+content     mdict    chrome/content/
+content     mdict    chrome/content/ contentaccessible=yes
+overlay chrome://browser/content/browser.xul chrome://mdict/content/browser.xul
+
+locale  mdict  en-US  locale/en-US/
+
+skin  mdict  classic/1.0  skin/
+style  chrome://global/content/customizeToolbar.xul  chrome://mdict/skin/skin.css
