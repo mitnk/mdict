@@ -1,0 +1,14 @@
+{
+  "name": "MDict",
+  "description": "A simple English-Chinese Dictonary",
+  "version": "0.8.0",
+  "permissions": ["contextMenus", "tabs", "http://*/*", "https://*/*"],
+  "background": {
+      "scripts": ["rightclick.js"]
+  },
+  "icons": {
+    "16": "mdict-16.png",
+    "48": "mdict-48.png"
+  },
+  "manifest_version": 2
+}
