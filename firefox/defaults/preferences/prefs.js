@@ -1,1 +1,0 @@
-pref("extensions.mdict.autorun", false);

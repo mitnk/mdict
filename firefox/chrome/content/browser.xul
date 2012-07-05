@@ -1,6 +1,4 @@
 <?xml version="1.0"?>
-<?xml-stylesheet href="chrome://mdict/skin/skin.css" type="text/css"?>
-<!DOCTYPE mdict SYSTEM "chrome://mdict/locale/translations.dtd">
 <overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script src="mdict.js" />
 
@@ -8,6 +6,6 @@
         <menuitem id="my-menu-item"
                   insertafter="context-selectall"
                   label="Lookup in MDict"
-                  oncommand="lookup_word()"/>
+                  oncommand="mdict_lookup()"/>
     </popup>
 </overlay>

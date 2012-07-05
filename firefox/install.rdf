@@ -5,10 +5,10 @@
   <Description about="urn:mozilla:install-manifest">
     <em:id>mdict@mitnk.com</em:id>
     <em:name>MDict</em:name>
-    <em:version>0.8.0</em:version>
+    <em:version>0.9.0</em:version>
     <em:type>2</em:type>
     <em:creator>mitnk</em:creator>
-    <em:description>Lookup English Words in MDict</em:description>
+    <em:description>A simple English-Chinese Dictionary</em:description>
     <em:homepageURL>http://mitnk.com</em:homepageURL>
     <em:optionsURL>chrome://mdict/content/options.xul</em:optionsURL>
 

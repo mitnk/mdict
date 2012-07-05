@@ -1,43 +1,83 @@
-function lookup_word() {
-    var word = content.window.getSelection().toString();
-    word = word.split(/\W+/)[0];
-    word = word.replace(/^\s+|\s+$/g, '').toLowerCase();
+function create_main_div(doc, div_id) {
+    var main_div = doc.getElementById(div_id);
+    if (main_div == undefined) {
+        main_div = doc.body.appendChild(doc.createElement("div"));
+        main_div.setAttribute("id", div_id);
+        main_div.setAttribute("style",
+            "position: fixed; z-index:9999; top: 100px; left: 100px; width: 20em;"
+            + "border: 2px outset orange; background-color: cornsilk;");
+        main_div.setAttribute("onclick", "document.body.removeChild(this)");
+    }
+    return main_div;
+}
 
-    var doc = content.document;
-    var div = doc.body.appendChild(doc.createElement("div"));
-    div.setAttribute("style",
-        "position: fixed; top: 100px; left: 100px; width: 20em;"
-        + "border: 2px outset orange; background-color: cornsilk;");
-    var word_div = doc.body.appendChild(doc.createElement("div"));
-    word_div.style.color = "black";
-    word_div.style.fontSize = "16px";
-    word_div.style.padding = "8px";
-    word_div.style.zIndex = "9999";
-    word_div.style.textAlign = "left";
-    word_div.innerHTML = 'Loading';
-    word_div.setAttribute("onclick", "document.body.removeChild(this.parentNode)");
-    div.appendChild(word_div);
+function create_word_div(doc, div_id) {
+    var word_div = doc.getElementById(div_id);
+    if (word_div == undefined) {
+        word_div = doc.body.appendChild(doc.createElement("div"));
+        word_div.setAttribute("id", div_id);
+        word_div.style.color = "black";
+        word_div.style.fontSize = "16px";
+        word_div.style.padding = "8px";
+        word_div.style.zIndex = "9999";
+        word_div.style.textAlign = "left";
+    }
+    return word_div;
+}
 
+function get_selected_word(wind) {
+    var word = wind.getSelection().toString();
+    word = word.replace(/^\s+|\s+$/g, '');
+    word = word.split(/\W+/)[0].toLowerCase();
+    return word;
+}
+
+function request_define(url, target_div) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.status != 200) {
-            word_div.innerHTML = 'Lookup Error.';
+            target_div.innerHTML = 'Lookup Error.';
         }
         else if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             var result = eval('(' + xmlhttp.responseText + ')');
             if (result.status == "ok") {
                 var define = result.result;
-                word_div.innerHTML = '<span style="color:red">' + define.word
+                target_div.innerHTML = '<span style="color:red">' + define.word
                     + '</span> [<span style="color:green">' + define.pron
                     + '</span>] ' + define.pos + ' <span style="color:blue">'
                     + define.acceptation + "</span><br><br>" + define.gloss;
             }
             else {
-                word_div.innerHTML = result.key + ' Not Found.';
+                target_div.innerHTML = result.key + ' Not Found.';
             }
         }
     }
-    var url = 'http://mitnk.com/dict/' + word + '/?api=1';
     xmlhttp.open("GET", url, true);
     xmlhttp.send(null);
+}
+
+function lookup_word(doc, wind) {
+    var word = get_selected_word(wind);
+    if (word != "") {
+        var MAIN_DIV = "main-div-mdict-mitnk";
+        var WORD_DIV = 'word-div-mdict-mitnk';
+        var main_div = create_main_div(doc, MAIN_DIV);
+        var word_div = create_word_div(doc, WORD_DIV);
+        word_div.innerHTML = 'Loading';
+        main_div.appendChild(word_div);
+
+        var url = 'http://mitnk.com/dict/' + word + '/?api=1';
+        request_define(url, word_div);
+
+        if (doc.body.getAttribute("onclick") == undefined) {
+            doc.body.setAttribute(
+                "onclick",
+                "document.body.removeChild(document.getElementById('" + MAIN_DIV + "'))"
+            );
+        }
+    }
+}
+
+function mdict_lookup() {
+	lookup_word(content.document, content.window);
 }

@@ -1,7 +1,7 @@
 {
   "name": "MDict",
   "description": "A simple English-Chinese Dictonary",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "permissions": ["contextMenus", "tabs", "http://*/*", "https://*/*"],
   "background": {
       "scripts": ["rightclick.js"]
