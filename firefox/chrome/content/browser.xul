@@ -6,6 +6,6 @@
         <menuitem id="my-menu-item"
                   insertafter="context-selectall"
                   label="Lookup in MDict"
-                  oncommand="mdict_lookup()"/>
+                  oncommand="mitnk_mdict.main()"/>
     </popup>
 </overlay>

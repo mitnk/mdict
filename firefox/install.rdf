@@ -3,14 +3,13 @@
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
   <Description about="urn:mozilla:install-manifest">
-    <em:id>mdict-firefox@mitnk.com</em:id>
+    <em:id>mitnk-mdict@mitnk.com</em:id>
     <em:name>MDict</em:name>
     <em:version>0.9.0</em:version>
     <em:type>2</em:type>
     <em:creator>mitnk</em:creator>
     <em:description>A simple English-Chinese Dictionary</em:description>
     <em:homepageURL>http://mitnk.com</em:homepageURL>
-    <em:optionsURL>chrome://mdict/content/options.xul</em:optionsURL>
 
     <em:targetApplication>
       <Description>
