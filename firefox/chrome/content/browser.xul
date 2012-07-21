@@ -3,7 +3,7 @@
     <script src="mdict.js" />
 
     <popup id="contentAreaContextMenu">
-        <menuitem id="my-menu-item"
+        <menuitem id="mitnk-mdict"
                   insertafter="context-selectall"
                   label="Lookup in MDict"
                   oncommand="mitnk_mdict.main()"/>
