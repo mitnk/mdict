@@ -66,7 +66,9 @@ var mitnk_mdict = {
 
     clickify: function(elem, div_id) {
         elem.setAttribute("id", div_id);
-        elem.setAttribute("onclick", "document.body.removeChild(this)");
+        elem.addEventListener("click", function(event){
+                content.document.body.removeChild(this);
+            }, false);
         elem.style.color = "black";
         elem.style.backgroundColor = "cornsilk";
         elem.style.position = "fixed";
@@ -80,11 +82,13 @@ var mitnk_mdict = {
     },
 
     clickify_body: function(elem, div_id) {
-        var code = "if (document.getElementById('" + div_id + "') != null){"
-            + "document.body.removeChild(document.getElementById('"
-            + div_id + "'))}";
         if (elem.getAttribute("onclick") == undefined) {
-            elem.setAttribute("onclick", code);
+            elem.addEventListener("click", function() {
+                    var target = content.document.getElementById("mitnk-mdict-main-div");
+                    if (target != null) {
+                        content.document.body.removeChild(target);
+                    }
+                }, false);
         }
     },
 
@@ -155,7 +159,6 @@ var mitnk_mdict = {
             this.clickify_body(doc.body, MAIN_DIV);
         }
     },
-
 
     main: function() {
         this.lookup_word(content.document, content.window);
