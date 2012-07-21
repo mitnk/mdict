@@ -1,3 +1,6 @@
 content     mdict    chrome/content/
 content     mdict    chrome/content/ contentaccessible=yes
+
 overlay chrome://browser/content/browser.xul chrome://mdict/content/browser.xul
+
+locale helloworld en-US locale/en-US/

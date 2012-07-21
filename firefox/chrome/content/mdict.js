@@ -1,13 +1,13 @@
 window.addEventListener("load", mitnk_mdict_init_layout, false);
 
-function jsonToDOM(xml, doc, nodes) {
+function mitnk_mdict_json_to_dom(xml, doc, nodes) {
     function is_array(obj) {
         return obj instanceof Array;
     }
 
     function namespace(name) {
         var m = /^(?:(.*):)?(.*)$/.exec(name);
-        return [jsonToDOM.namespaces[m[1]], m[2]];
+        return [mitnk_mdict_json_to_dom.namespaces[m[1]], m[2]];
     }
 
     function tag(name, attr) {
@@ -26,7 +26,7 @@ function jsonToDOM(xml, doc, nodes) {
 
         var args = Array.slice(arguments, 2);
         var vals = namespace(name);
-        var elem = doc.createElementNS(vals[0] || jsonToDOM.defaultNamespace,
+        var elem = doc.createElementNS(vals[0] || mitnk_mdict_json_to_dom.defaultNamespace,
                                        vals[1]);
 
         for (var key in attr) {
@@ -48,11 +48,11 @@ function jsonToDOM(xml, doc, nodes) {
     }
     return tag.apply(null, xml);
 }
-jsonToDOM.namespaces = {
+mitnk_mdict_json_to_dom.namespaces = {
     html: "http://www.w3.org/1999/xhtml",
     xul: "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 };
-jsonToDOM.defaultNamespace = jsonToDOM.namespaces.html;
+mitnk_mdict_json_to_dom.defaultNamespace = mitnk_mdict_json_to_dom.namespaces.html;
 
 var mitnk_mdict = {
     create_main_div: function(doc, div_id) {
@@ -103,7 +103,7 @@ var mitnk_mdict = {
         while (target_div.hasChildNodes()) {
             target_div.removeChild(target_div.lastChild);
         }
-        var elem = jsonToDOM(["span", {}, text], doc, {});
+        var elem = mitnk_mdict_json_to_dom(["span", {}, text], doc, {});
         target_div.appendChild(elem);
     },
 
@@ -111,7 +111,7 @@ var mitnk_mdict = {
         while (target_div.hasChildNodes()) {
             target_div.removeChild(target_div.lastChild);
         }
-        var elem = jsonToDOM(["div", {},
+        var elem = mitnk_mdict_json_to_dom(["div", {},
                 ["span", {style: "color:red"}, define.word],
                 ["span", {}, " ["],
                 ["span", {style: "color:green"}, define.pron],
