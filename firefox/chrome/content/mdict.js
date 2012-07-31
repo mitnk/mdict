@@ -76,9 +76,9 @@ var mitnk_mdict = {
         elem.style.top = "100px";
         elem.style.left = "100px";
         elem.style.padding = "10px";
-        elem.style.width = "20em";
+        elem.style.width = "17em";
         elem.style.zIndex = "9999";
-        elem.style.fontSize = "16px";
+        elem.style.fontSize = "14px";
     },
 
     clickify_body: function(elem, div_id) {
@@ -112,15 +112,15 @@ var mitnk_mdict = {
             target_div.removeChild(target_div.lastChild);
         }
         var elem = mitnk_mdict_json_to_dom(["div", {},
-                ["span", {style: "color:red"}, define.word],
+                ["span", {style: "color:red"}, "" + define.word],
                 ["span", {}, " ["],
-                ["span", {style: "color:green"}, define.pron],
+                ["span", {style: "color:green"}, "" + define.pron],
                 ["span", {}, "] "],
                 ["span", {}, define.pos + " "],
-                ["span", {style: "color:blue"}, define.acceptation],
+                ["span", {style: "color:blue"}, "" + define.acceptation],
                 ["br"],
                 ["br"],
-                ["span", {}, define.gloss],
+                ["span", {}, "" + define.gloss],
             ], doc, {});
         target_div.appendChild(elem);
     },
