@@ -3,6 +3,8 @@ MDict
 
 A simple English-Chinese dictionary, supporting tense/plurality look up.
 
+<img src="http://mitnk.com/images/2012/07/mdict.png" border="3">
+
 Firefox Add-on
 --------------
 
