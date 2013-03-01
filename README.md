@@ -1,14 +1,15 @@
 MDict
 =====
 
-A simple English-Chinese dictionary, supporting tense/plurality look up.
+- A simple English-Chinese dictionary
+- A Firefox/Chrome Add-on
+- Supporting tense/plurality look up
 
-<img src="http://mitnk.com/images/2012/07/mdict.png" border="3">
 
-Firefox Add-on
---------------
+Firefox
+-------
 
-[Install MDict for Firefox](https://addons.mozilla.org/en-US/firefox/addon/mdict/)
+Install from [Mozilla Add-ons Site](https://addons.mozilla.org/en-US/firefox/addon/mdict/).
 
 
 Chrome Add-on
@@ -30,3 +31,6 @@ We can also add `MDict` to Chrome manually:
 
 5. We are done. Try open a website and lookup an English word.
 
+----
+
+<img src="http://mitnk.com/images/2012/07/mdict.png" border="3">
