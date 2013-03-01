@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<overlay id="sample" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<overlay id="mitnk-mdict-browser-layout"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script src="mdict.js" />
 
     <popup id="contentAreaContextMenu">
